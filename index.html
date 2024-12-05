@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2x2 za</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="head">
+    <h1>Caltulate turture</h1>
+</div>
+    <p>Enter number to calculate the Table of 2:</p>
+    <input type="number" id="userInput" placeholder="Enter a number">
+    <button onclick="calculateTable()">Calculate</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateTable() {
+
+            var userInput = document.getElementById("userInput").value;
+            var resultDiv = document.getElementById("result");
+
+            resultDiv.innerHTML = "";
+
+            if (userInput === "" || userInput <= 0) {
+                resultDiv.innerHTML = "Please enter a valid positive number.";
+                return;
+            }
+
+            var limit = parseInt(userInput);
+            var resultHTML = "<h3>Table of 2:</h3>";
+            for (var i = 1; i <= limit; i++) {
+                resultHTML += "2 × " + i + " = " + (2 * i) + "<br>";
+            }
+            resultDiv.innerHTML = resultHTML;
+        }
+    </script>
+
+
+</body>
+</html>
