@@ -2,41 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2x2 za</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     
+    </style>
 </head>
 <body>
-<div class="head">
-    <h1>Caltulate turture</h1>
-</div>
-    <p>Enter number to calculate the Table of 2:</p>
-    <input type="number" id="userInput" placeholder="Enter a number">
-    <button onclick="calculateTable()">Calculate</button>
-    <div class="result" id="result"></div>
-
+    <section>
+        <div class="maincontainer">
+            <div class="primarycontainer">
+                <div class="item1">
+                    <label for="type1">
+                        Type Number<input type="number" id="type1">
+                    </label>
+                    <br>
+                    <br>
+                    <label for="type2">
+                        Result<input type="number" id="type2">
+                    </label>
+                    <br>
+                    <br>
+                    <button onclick="calculateTable()">Calculate</button>
+                    
+                    <table id="show-table"></table>
+                </div>
+            </div>
+        </div>
+    </section>
+        
     <script>
         function calculateTable() {
+            let number = Number(document.getElementById("type1").value);
+            let table = Number(document.getElementById("type2").value);
+            
+            let output = "";
 
-            var userInput = document.getElementById("userInput").value;
-            var resultDiv = document.getElementById("result");
-
-            resultDiv.innerHTML = "";
-
-            if (userInput === "" || userInput <= 0) {
-                resultDiv.innerHTML = "Please enter a valid positive number.";
-                return;
+            for (let i = 1; i<=table; i++) {
+                output += `<tr><td>${number}</td><td>x</td><td>${i}</td><td>=</td><td>${number * i}</td></tr>`;
             }
-
-            var limit = parseInt(userInput);
-            var resultHTML = "<h3>Table of 2:</h3>";
-            for (var i = 1; i <= limit; i++) {
-                resultHTML += "2 × " + i + " = " + (2 * i) + "<br>";
-            }
-            resultDiv.innerHTML = resultHTML;
+            
+            document.getElementById("show-table").innerHTML = output;
+        
         }
     </script>
-
-
 </body>
 </html>
